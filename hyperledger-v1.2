@@ -1,0 +1,66 @@
+
+What is New in HL v1.2
+Hyperledger v1.2 (HL v1.2) is truly, truly an exciting release. I have been long awaiting for this release as it addresses some of the challenges I personally encountered when using Fabric. Many, including myself, have shared these challenges with the Hyperledger Fabric team and we are heard. Before I share the full list of exciting new features in HL v1.2, some context is first needed. 
+
+Context 
+Privacy and Scalability are the foremost reasons why organisations choose permissioned/consortium blockchains/DLTs over the public ones. 
+
+With Hyperledger, privacy is enabled through the use of channels. The channel design is elegant and it works. For Enterprise Ethereum, specifically Quorum, private transactions are introduced thus creating 2 states – public state and private state. 
+
+After much industry experimentation with Hyperledger, one of the most commonly heard feedback is over the v1 channels design. To take one example, SWIFT completed a POC over and one of the observation/findings was “…to productise the solution, more than 100,000 channels would need to be established and maintained, covering all existing Nostro relationships, presenting significant operational challenges.”
+
+In Hyperledger v1.2, all these issues were addressed head on. 
+
+High-Level Features in HL v1.2
+Some of the highlights rolled out in HL v1.2 are:
+1.	
+
+Not to worry if these terms are new to you as a primer is provided below. 
+
+Fundamentals First – Definitions
+Channel: 
+A channel is a private blockchain overlay which allows for data isolation and confidentiality. Channels are defined by a Configuration-Block.
+
+Channel-specific Ledger: 
+A channel-specific ledger is shared across the peers in the channel, and transacting parties must be properly authenticated to a channel in order to interact with it
+
+Private Data Collections: 
+Used to manage confidential data that two or more organizations on a single channel want to keep private from other organizations on that channel. The collection definition describes a subset of organizations on a channel entitled to store a set of private data, which by extension implies that only these organizations can transact with the private data.
+
+Private Data:
+Confidential data that is stored in a private database on each authorized peer, logically separate from the channel ledger data. Access to this data is restricted to one or more organizations on a channel via a private data collection definition. Unauthorized organizations will have a hash of the private data on the channel ledger as evidence of the transaction data. Also, for further privacy, hashes of the private data go through the Ordering-Service, not the private data itself, so this keeps private data confidential from Orderer.
+
+Build Your First Network – Private Data Tutorial 
+<Steps and Screenshots>
+
+There you have it! A hyperledger v1.2 fabric on which can be further built upon. 
+
+When to Use Collection within a Channel or a Separate Channel
+1.	Use channels when entire transactions (and ledgers) must be kept confidential within a set of organizations that are members of the channel. For example, …
+
+2.	Use collections when transactions (and ledgers) must be shared among a set of organizations, but when only a subset of those organizations should have access to some (or all) of the data within a transaction. Additionally, since private data is disseminated peer-to-peer rather than via blocks, use private data collections when transaction data must be kept confidential from ordering service nodes. For example, …
+
+Conclusion
+Being both a Hyperleder/Enterprise Ethereum DLT practitioner in the finance industry within the capital markets, the introduction of private data collection in v1.2 release is a real, real game changer: Instead of creating multiple separate channels among participants to achieve privacy needs, you need only to create one channel to keep chaincode data confidential among a subset of channel members.
+
+Speaking from personal experience, having to evaluate and actually building and operating DLT solutions in production environment/setting that can scale, private data collection in v1.2 release really, really makes scaling up and operating a lot easier.  
+
+Enjoy Hyperledger v1.2 and as always, feel free to ask me any questions via nathan.mk.aw@gmail.com and/or connect with me on linkedin. 
+
+SOURCE: 
+https://hyperledger-fabric.readthedocs.io/en/release-1.2/private-data/private-data.html
+https://wiki.hyperledger.org/projects/fabric/roadmap
+https://github.com/hyperledger/fabric-samples/tree/master/chaincode/marbles02_private
+https://hyperledger-fabric.readthedocs.io/en/release-1.2/private_data_tutorial.html
+https://www.swift.com/news-events/news/swift-completes-landmark-dlt-proof-of-concept
+https://hyperledger-fabric.readthedocs.io/en/release-1.2/glossary.html
+https://www.hyperledger.org/blog/2018/07/24/hyperledger-sawtooth-seth-and-truffle-101
+
+
+
+Thank you.
+
+Regards,
+
+Nathan Aw
+
